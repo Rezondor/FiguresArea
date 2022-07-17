@@ -1,6 +1,6 @@
-﻿namespace FiguresArea.Figure;
+﻿namespace FiguresArea.Shapes;
 
-public class Triangle : ISquare
+public class Triangle : Figure
 {
     public double FirstSide { get; set; }
 
@@ -11,16 +11,16 @@ public class Triangle : ISquare
     public Triangle(
         double firstSide,
         double secondSide,
-        double thirdSide)
+        double thirdSide):base("Треугольник")
     {
         FirstSide = firstSide;
         SecondSide = secondSide;
         ThirdSide = thirdSide;
     }
 
-    public double GetSquare()
+    public override double GetSquare()
     {
-        double halfPerimeter = FindPerimetr(FirstSide, SecondSide, ThirdSide) / 2;
+        double halfPerimeter = GetPerimetr(FirstSide, SecondSide, ThirdSide) / 2;
 
         return Math.Sqrt(halfPerimeter *
             (halfPerimeter - FirstSide) *
@@ -29,7 +29,7 @@ public class Triangle : ISquare
 
     }
 
-    public double FindPerimetr(
+    public static double GetPerimetr(
         double firstSide,
         double secondSide,
         double thirdSide)
@@ -44,4 +44,5 @@ public class Triangle : ISquare
             Math.Pow(ThirdSide, 2) + Math.Pow(SecondSide, 2) == Math.Pow(SecondSide, 2) ||
             Math.Pow(FirstSide, 2) + Math.Pow(ThirdSide, 2) == Math.Pow(FirstSide, 2);
     }
+
 }
