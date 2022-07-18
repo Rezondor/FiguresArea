@@ -1,6 +1,6 @@
 Задание №2
 
-MS SQL Server на этой ПК нет
+MS SQL Server на этом ПК нет
 Запрос сделан на PostgreSQL
 
 SELECT p."Name", pc."Name" 
