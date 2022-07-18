@@ -1,0 +1,14 @@
+Задание №2
+
+MS SQL Server на этой ПК нет
+Запрос сделан на PostgreSQL
+
+SELECT p."Name", pc."Name" 
+	FROM public."Product" as p
+	LEFT JOIN (
+		SELECT pc."Id",pc."ProductId", c."Name" 
+		FROM public."Category" AS c
+		JOIN public."ProductCategory" AS pc
+		ON c."Id"=pc."CategoryId"
+	) AS pc 
+	ON p."Id" = pc."ProductId" 
